@@ -49,10 +49,10 @@ async function run() {
     // Copy spec file from path specFile to /github/home/rpmbuild/SPECS/
     await exec.exec(`cp ${specFile.srcFullPath} ${specFile.destFullPath}`);
 
-    // Make the code in /github/workspace/ into a tar.gz, located in /github/home/rpmbuild/SOURCES/
+    // Checkout Everything in the repository to SOURCES dir
     const oldGitDir = process.env.GIT_DIR;
     process.env.GIT_DIR = '/github/workspace/.git';
-    await exec.exec(`git archive --output=/github/home/rpmbuild/SOURCES/${name}-${version}.tar.gz --prefix=${name}-${version}/ HEAD`);
+    await exec.exec(`git --work-tree=/github/home/rpmbuild/SOURCES/ checkout *`);
     await exec.exec(`ln -s /github/home/rpmbuild/SOURCES/${name}-${version}.tar.gz /github/home/rpmbuild/SOURCES/${name}.tar.gz`);
     process.env.GIT_DIR = oldGitDir;
 
