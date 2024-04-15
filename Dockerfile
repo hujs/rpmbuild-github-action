@@ -10,7 +10,7 @@ RUN yum install -y rpm-build rpmdevtools gcc make coreutils python git dnf "dnf-
 
 # Setting up node to run our JS file
 # Download Node Linux binary
-RUN curl -O https://nodejs.org/dist/latest-v20.x/node-v20.12.2.tar.xz
+RUN curl -O https://nodejs.org/dist/latest-v20.x/node-v20.12.2-linux-x64.tar.xz
 
 # Extract and install
 RUN tar --strip-components 1 -xvf node-v* -C /usr/local
