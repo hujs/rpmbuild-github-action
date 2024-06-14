@@ -4,7 +4,7 @@
   "description": "Container template action using actions/toolkit",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "./node_modules/.bin/tsc",
     "format": "prettier --write **/*.ts",
     "test": "jest"
   },
