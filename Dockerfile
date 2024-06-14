@@ -16,6 +16,7 @@ RUN yum install -y rpm-build nodejs nodejs-npm rpmdevtools gcc make coreutils py
 # RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install dependecies and build main.js
+RUN npm install typescript --save-dev
 RUN npm install --production \
 && npm run-script build
 
