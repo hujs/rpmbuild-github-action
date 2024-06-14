@@ -6,11 +6,11 @@ COPY . .
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
-RUN yum install -y rpm-build rpmdevtools gcc make coreutils python git dnf "dnf-command(builddep)"
+RUN yum install -y rpm-build nodejs nodejs-npm rpmdevtools gcc make coreutils python git dnf "dnf-command(builddep)"
 
 # Setting up node to run our JS file
 # Download Node Linux binary
-RUN curl -O https://nodejs.org/dist/v22.3.0/node-v22.3.0.tar.xz
+# RUN curl -O https://nodejs.org/dist/v22.3.0/node-v22.3.0.tar.xz
 
 # Extract and install
 RUN tar --strip-components 1 -xvf node-v* -C /usr/local
