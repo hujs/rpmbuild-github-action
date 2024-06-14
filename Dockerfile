@@ -1,5 +1,5 @@
-# Using Fedora 37 as base image to support rpmbuild (packages will be Dist fc37)
-FROM fedora:37
+# Using Fedora 40 as base image to support rpmbuild (packages will be Dist fc40)
+FROM fedora:40
 
 # Copying all contents of rpmbuild repo inside container
 COPY . .
@@ -13,7 +13,7 @@ RUN yum install -y rpm-build nodejs nodejs-npm rpmdevtools gcc make coreutils py
 # RUN curl -O https://nodejs.org/dist/v22.3.0/node-v22.3.0.tar.xz
 
 # Extract and install
-RUN tar --strip-components 1 -xvf node-v* -C /usr/local
+# RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install dependecies and build main.js
 RUN npm install --production \
