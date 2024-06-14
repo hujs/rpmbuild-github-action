@@ -1,5 +1,5 @@
-# Using Fedora 40 as base image to support rpmbuild (packages will be Dist fc40)
-FROM fedora:40
+# Using Fedora 38 as base image to support rpmbuild (packages will be Dist fc38)
+FROM fedora:38
 
 # Copying all contents of rpmbuild repo inside container
 COPY . .
@@ -16,7 +16,7 @@ RUN yum install -y rpm-build nodejs nodejs-npm rpmdevtools gcc make coreutils py
 # RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install dependecies and build main.js
-RUN npm install typescript --save-dev
+#RUN npm install typescript --save-dev
 RUN npm install --production \
 && npm run-script build
 
