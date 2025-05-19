@@ -107,7 +107,7 @@ async function run() {
     await cp.exec(`cp -R /github/home/rpmbuild/RPMS/. rpmbuild/RPMS/`);
 
     await exec.exec(`ls -la rpmbuild/SRPMS`);
-    await exec.exec(`ls -la rpmbuild/RPMS`);
+    await exec.exec(`ls -la rpmbuild/RPMS/x86_64`);
     
     // set outputs to path relative to workspace ex ./rpmbuild/
     core.setOutput("rpm_dir_path", `rpmbuild/RPMS/`);                      // path to RPMS directory
